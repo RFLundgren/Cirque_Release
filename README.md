@@ -6,8 +6,7 @@ Cirque is not open source. It is currently shared for testing and is planned as 
 
 ## Current Download
 
-- Current APK: [downloads/cirque-0.1.101.apk](downloads/cirque-0.1.101.apk)
-- Convenience copy: [downloads/cirque-latest.apk](downloads/cirque-latest.apk)
+- APK: [downloads/cirque-0.1.101.apk](downloads/cirque-0.1.101.apk)
 - Version: `0.1.101`
 - Package: `com.cirque.music`
 - Build type: release APK

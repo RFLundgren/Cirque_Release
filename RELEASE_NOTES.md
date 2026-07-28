@@ -2,7 +2,7 @@
 
 ## 0.1.101
 
-This is the first public test release published through the Cirque_Release repository.
+This is the first public test release published through the Cirque_Release repository. The APK is distributed directly from the repository downloads folder rather than a GitHub Release, because GitHub Releases automatically expose source archives that are confusing for a closed-source app.
 
 ### Core App
 
