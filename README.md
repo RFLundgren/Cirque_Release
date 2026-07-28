@@ -61,7 +61,7 @@ Important: not every experimental feature is available in every navidrome-experi
 | [Genre exploration](https://github.com/RFLundgren/navidrome_experimental#genre-exploration-experimental) | `develop` only | Richer genre browsing and genre-based mix/playlist entry points when exposed by the server. |
 | [Genre merging](https://github.com/RFLundgren/navidrome_experimental#genre-merging-experimental) | `develop` only | Cleaner genre data from the server after scan-time merges. Cirque benefits through normal genre/tag browsing. |
 
-Features marked `develop` only have not reached a tagged `stable` checkpoint yet. See [Getting navidrome-experimental](https://github.com/RFLundgren/navidrome_experimental#getting-navidrome-experimental) for what the two tags mean before asking testers to rely on those features.
+Features marked `develop` only have not reached a tagged `stable` checkpoint yet. See [Getting navidrome-experimental](https://github.com/RFLundgren/navidrome_experimental#getting-navidrome-experimental) for what the two tags mean.
 
 Experimental repositories:
 
