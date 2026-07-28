@@ -53,6 +53,7 @@ Important: not every experimental feature is available in every navidrome-experi
 | [Podcast support](https://github.com/RFLundgren/navidrome_experimental/blob/master/PODCAST_PLAN.md) | `stable` and `develop` | Podcasts section, episode playback, server-side episode download state, phone episode downloads, and playlist add where supported. |
 | [Physical folder browsing](https://github.com/RFLundgren/navidrome_experimental/blob/master/navidrome-folder-roadmap.md) | `stable` and `develop` | Folders section for navigating and playing music by disk layout. |
 | [Enhanced scrobble attribution](https://github.com/RFLundgren/navidrome_experimental#enhanced-scrobble-attribution-pulse-integration) | `stable` and `develop` | Richer Pulse/source context when available to the server and plugins. |
+| [Pulse insights](https://github.com/RFLundgren/pulse) | Pulse plugin plus compatible server/plugin support | Weekly, monthly, and yearly listening recaps in Cirque: top artists, tracks, albums, genres, moods, listening streaks, peak days/times, sessions, diversity metrics, library recency, and track obsession. |
 | [User-defined song tagging](https://github.com/RFLundgren/navidrome_experimental#user-defined-song-tagging-experimental) | `develop` only | My Tags, tag filtering, tag-based playlist workflows, and plugin-facing tag data. |
 | [AI Genre / AI Mood / My Tags dashboards](https://github.com/RFLundgren/navidrome_experimental#ai-genre--ai-mood--my-tags-dashboards-experimental) | `develop` only | Library dashboards for AI Genre, AI Mood, and My Tags, with visibility controlled by Cirque settings and server capability probing. |
 | [On-demand plugin actions](https://github.com/RFLundgren/navidrome_experimental#on-demand-plugin-actions-experimental) | `develop` only | Plugin config actions on the server side, such as one-off validation or manual plugin runs. |
@@ -67,7 +68,18 @@ Experimental repositories:
 - Navidrome experimental fork: [RFLundgren/navidrome_experimental](https://github.com/RFLundgren/navidrome_experimental)
 - AI auto tagging plugin: [RFLundgren/AI-auto-tagging-plugin](https://github.com/RFLundgren/AI-auto-tagging-plugin)
 - AI mood playlists plugin: [RFLundgren/AI-Mood-Playlists-Plugin](https://github.com/RFLundgren/AI-Mood-Playlists-Plugin)
-- Pulse: [RFLundgren/pulse](https://github.com/RFLundgren/pulse)
+- Pulse plugin and insight system: [RFLundgren/pulse](https://github.com/RFLundgren/pulse)
+
+
+### Pulse Notes
+
+Pulse is not part of standard Navidrome. It is a companion plugin that records scrobbles and writes generated insight snapshots to a `Pulse-Data` playlist. Cirque knows how to read that payload and render it as Pulse insight cards.
+
+Pulse starts collecting from the point it is installed. It does not import historical listening from Last.fm or other services. After installation, play music normally and allow the plugin scheduler to run before expecting real cards to appear in Cirque.
+
+Pulse can provide weekly, monthly, and yearly recaps including total plays, listening minutes, top artists, top tracks, top albums, top genres, mood breakdowns, peak listening day/time, weekday versus weekend split, hourly patterns, listening streak, session counts, longest session, variety score, repeat ratio, top artist/album/genre concentration, recent-addition listening, and track obsession.
+
+Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow.
 
 ## First Test Checklist
 

@@ -36,7 +36,8 @@ These features require Navidrome experimental support or companion plugins and a
 - `develop` only: AI Tags, AI Genre, AI Mood, and My Tags dashboards.
 - `develop` only: Skipped/disliked track indicators and server-side skip behavior.
 - `develop` only: Genre exploration and genre merging benefits.
-- Plugin-backed: Pulse insight cards, AI tagging, and AI mood playlist workflows.
+- Plugin-backed: Pulse insight cards for weekly/monthly/yearly listening recaps, including top artists/tracks/albums/genres, moods, sessions, diversity, recency, and track obsession.
+- Plugin-backed: AI tagging and AI mood playlist workflows.
 
 ### Known Limits
 
