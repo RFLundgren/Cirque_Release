@@ -4,9 +4,17 @@ This help file is written for new users. It explains what Cirque does, how to co
 
 ## What Cirque Is
 
-Cirque is an Android music client for Navidrome and compatible Subsonic API servers. It is designed around private self-hosted music libraries, offline use, Android Auto, Android TV listening, and richer library discovery.
+Cirque is an Android music client for Navidrome and compatible Subsonic API servers. It is designed around private self-hosted music libraries, offline use, phones, tablets, Android Auto, Android TV listening, and richer library discovery.
 
 Cirque does not include a music server. You must already have a reachable Navidrome or Subsonic-style server.
+
+## Device Compatibility
+
+Cirque currently supports Android phones, Android tablets, Android Auto, and Android TV.
+
+Phones are the primary experience. Tablets use the same core app features, with larger-screen layout polish still evolving. Android Auto is intended for simple in-car playback and safe browsing. Android TV is intended for playback-focused listening, including a dark listening screen for people who want music without a bright TV image.
+
+Android Auto and Android TV do not work exactly like the phone app. They use platform-controlled layouts, so some app themes, colors, advanced controls, and detailed screens may not appear the same way.
 
 ## Install And Confirm The Build
 

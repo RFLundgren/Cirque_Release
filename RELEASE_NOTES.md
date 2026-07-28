@@ -7,6 +7,7 @@ This is the first public test release published through the Cirque_Release repos
 ### Core App
 
 - Release APK published as `downloads/cirque-0.1.101.apk`.
+- Device targets called out clearly: Android phones, Android tablets, Android Auto, and Android TV.
 - Package name is `com.cirque.music`.
 - Connection profiles allow switching between production, test, local, VPN/Tailscale, domain/HTTPS, and custom server setups.
 - Automatic profile selection supports home network, away/VPN network, and mobile fallback routes.
