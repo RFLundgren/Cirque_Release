@@ -29,14 +29,14 @@ This is the first public test release published through the Cirque_Release repos
 
 These features require Navidrome experimental support or companion plugins and are hidden when unsupported:
 
-- Podcasts.
-- Physical folder browsing.
-- AI Tags.
-- My Tags.
-- AI Tag category browsing for Genre, Language, and Mood.
-- Skipped/disliked track indicators.
-- Pulse insight cards.
-- AI tagging and AI mood playlist workflows.
+- `stable` and `develop`: Podcasts.
+- `stable` and `develop`: Physical folder browsing.
+- `stable` and `develop`: Enhanced scrobble attribution for richer Pulse/source context.
+- `develop` only: User-defined song tagging.
+- `develop` only: AI Tags, AI Genre, AI Mood, and My Tags dashboards.
+- `develop` only: Skipped/disliked track indicators and server-side skip behavior.
+- `develop` only: Genre exploration and genre merging benefits.
+- Plugin-backed: Pulse insight cards, AI tagging, and AI mood playlist workflows.
 
 ### Known Limits
 

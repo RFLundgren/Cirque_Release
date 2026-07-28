@@ -46,13 +46,21 @@ Cirque works with standard Navidrome for the core Subsonic music-client experien
 
 These features are optional. Cirque probes the server and hides unsupported sections rather than breaking against a standard Navidrome server.
 
-- Podcasts require the podcast Subsonic extension in the server.
-- Folders require the physical-folder browsing extension in the server.
-- AI Tags and My Tags require the experimental tag endpoints.
-- AI tag category browsing for Genre, Language, and Mood requires experimental tag data.
-- Skipped/disliked track indicators require server-side skip metadata support.
-- Pulse dashboards require the Pulse plugin/data path.
-- Deeper AI playlist and mood workflows require the relevant companion plugins.
+Important: not every experimental feature is available in every navidrome-experimental build. The `stable` tag is the safer checkpoint. The `develop` tag is where newer work appears first.
+
+| Feature | Server channel | What Cirque uses it for |
+| --- | --- | --- |
+| [Podcast support](https://github.com/RFLundgren/navidrome_experimental/blob/master/PODCAST_PLAN.md) | `stable` and `develop` | Podcasts section, episode playback, server-side episode download state, phone episode downloads, and playlist add where supported. |
+| [Physical folder browsing](https://github.com/RFLundgren/navidrome_experimental/blob/master/navidrome-folder-roadmap.md) | `stable` and `develop` | Folders section for navigating and playing music by disk layout. |
+| [Enhanced scrobble attribution](https://github.com/RFLundgren/navidrome_experimental#enhanced-scrobble-attribution-pulse-integration) | `stable` and `develop` | Richer Pulse/source context when available to the server and plugins. |
+| [User-defined song tagging](https://github.com/RFLundgren/navidrome_experimental#user-defined-song-tagging-experimental) | `develop` only | My Tags, tag filtering, tag-based playlist workflows, and plugin-facing tag data. |
+| [AI Genre / AI Mood / My Tags dashboards](https://github.com/RFLundgren/navidrome_experimental#ai-genre--ai-mood--my-tags-dashboards-experimental) | `develop` only | Library dashboards for AI Genre, AI Mood, and My Tags, with visibility controlled by Cirque settings and server capability probing. |
+| [On-demand plugin actions](https://github.com/RFLundgren/navidrome_experimental#on-demand-plugin-actions-experimental) | `develop` only | Plugin config actions on the server side, such as one-off validation or manual plugin runs. |
+| [Skip / auto-pass disliked songs](https://github.com/RFLundgren/navidrome_experimental#skip--auto-pass-disliked-songs-experimental) | `develop` only | Dimmed/skipped track indicators in Cirque and automatic skip behavior where the server exposes it. |
+| [Genre exploration](https://github.com/RFLundgren/navidrome_experimental#genre-exploration-experimental) | `develop` only | Richer genre browsing and genre-based mix/playlist entry points when exposed by the server. |
+| [Genre merging](https://github.com/RFLundgren/navidrome_experimental#genre-merging-experimental) | `develop` only | Cleaner genre data from the server after scan-time merges. Cirque benefits through normal genre/tag browsing. |
+
+Features marked `develop` only have not reached a tagged `stable` checkpoint yet. See [Getting navidrome-experimental](https://github.com/RFLundgren/navidrome_experimental#getting-navidrome-experimental) for what the two tags mean before asking testers to rely on those features.
 
 Experimental repositories:
 

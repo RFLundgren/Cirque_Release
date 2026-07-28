@@ -36,6 +36,24 @@ Standard Navidrome supports the core music experience: browsing albums, artists,
 
 Navidrome experimental and companion plugins unlock optional features such as Podcasts, Folders, AI Tags, My Tags, skipped track metadata, AI playlist workflows, and Pulse insights.
 
+Not all experimental features are in the same server channel. `stable` is the safer tagged checkpoint. `develop` contains newer features that have not yet reached the next stable experimental release.
+
+Feature availability:
+
+| Feature | Server channel | In Cirque |
+| --- | --- | --- |
+| Podcast support | `stable` and `develop` | Shows Podcasts when the server supports podcast endpoints. |
+| Physical folder browsing | `stable` and `develop` | Shows Folders when the server supports folder browsing. |
+| Enhanced scrobble attribution | `stable` and `develop` | Improves Pulse/source context where supported. |
+| User-defined song tagging | `develop` only | Enables My Tags and tag-based workflows. |
+| AI Genre / AI Mood / My Tags dashboards | `develop` only | Enables AI tag dashboards and category controls. |
+| On-demand plugin actions | `develop` only | Server/plugin-side actions; Cirque benefits where those plugin workflows produce usable data. |
+| Skip / auto-pass disliked songs | `develop` only | Enables skipped-track dimming and server-side skip behavior. |
+| Genre exploration | `develop` only | Enables richer genre browsing and mix entry points where exposed. |
+| Genre merging | `develop` only | Improves genre consistency before Cirque receives the data. |
+
+If you use standard Navidrome, these experimental-only sections should remain hidden. If you use navidrome-experimental `stable`, expect Podcasts, Folders, and enhanced scrobble attribution, but not every newer tagging or dashboard feature.
+
 Related repositories:
 
 - Navidrome experimental fork: https://github.com/RFLundgren/navidrome_experimental
