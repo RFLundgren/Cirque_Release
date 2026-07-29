@@ -2,7 +2,7 @@
 
 ## 0.1.101
 
-This is the first public test release published through the Cirque_Release repository. The APK is distributed directly from the repository downloads folder rather than a GitHub Release, because GitHub Releases automatically expose source archives that are confusing for a closed-source app.
+This release refreshes the public test APK in the Cirque_Release repository. The APK is distributed directly from the repository downloads folder rather than a GitHub Release, because GitHub Releases automatically expose source archives that are confusing for a closed-source app.
 
 ### Core App
 
@@ -25,18 +25,26 @@ This is the first public test release published through the Cirque_Release repos
 - Android Auto artwork metadata is supplied by Cirque, although the car host controls final compact layout behavior.
 - Android TV includes an early dark listening screen option.
 
+### Pulse And Source Attribution
+
+- Pulse cards now support newer optional plugin fields for podcasts, podcast players, AI Tags, My Tags, comparison insights, source breakdowns, and source-by-content summaries.
+- Listening Habits now labels weekday/weekend, daypart, and active-hour values as total listening minutes rather than play counts.
+- Cirque sends lightweight `nd_source` hints for normal music scrobbles and remote podcast episode stream URLs.
+- Source values currently include `android_phone`, `android_tablet`, `android_tv`, and `android_auto`.
+- Standard Navidrome ignores these additive parameters. navidrome-experimental and the Pulse plugin must read/store/aggregate them before source cards appear.
+
 ### Experimental Server Features
 
 These features require Navidrome experimental support or companion plugins and are hidden when unsupported:
 
 - `stable` and `develop`: Podcasts.
 - `stable` and `develop`: Physical folder browsing.
-- `stable` and `develop`: Enhanced scrobble attribution for richer Pulse/source context.
+- `stable` and `develop`: Enhanced scrobble/source attribution for richer Pulse context.
 - `develop` only: User-defined song tagging.
 - `develop` only: AI Tags, AI Genre, AI Mood, and My Tags dashboards.
 - `develop` only: Skipped/disliked track indicators and server-side skip behavior.
 - `develop` only: Genre exploration and genre merging benefits.
-- Plugin-backed: Pulse insight cards require Navidrome plugin support, documented by Pulse as a Navidrome build dated 2026-03-03 or later, plus the Pulse plugin. Recaps can include top artists/tracks/albums/genres, moods, sessions, diversity, recency, and track obsession; enhanced source attribution is best with navidrome-experimental `stable` or `develop`.
+- Plugin-backed: Pulse insight cards require Navidrome plugin support, documented by Pulse as a Navidrome build dated 2026-03-03 or later, plus the Pulse plugin.
 - Plugin-backed: AI tagging and AI mood playlist workflows.
 
 ### Known Limits
@@ -45,3 +53,4 @@ These features require Navidrome experimental support or companion plugins and a
 - Recursive folder actions are not yet implemented.
 - Podcast settings are still early.
 - Advanced audio tuning is staged; full parametric EQ, compression, loudness, and device-assigned profiles remain planned.
+- Source/device Pulse cards only appear after the server/plugin stack emits the matching snapshot fields.
