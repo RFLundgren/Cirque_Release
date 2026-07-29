@@ -27,11 +27,13 @@ This release refreshes the public test APK in the Cirque_Release repository. The
 
 ### Pulse And Source Attribution
 
-- Pulse cards now support newer optional plugin fields for podcasts, podcast players, AI Tags, My Tags, comparison insights, source breakdowns, and source-by-content summaries.
+- Pulse cards now support newer optional plugin fields for podcasts, podcast players, AI Tags, My Tags, comparison insights, source/device breakdowns, playback-origin breakdowns, streamed/downloaded breakdowns, source/origin matrix patterns, and source-by-content summaries.
+- Pulse Overview now includes a richer `How You Listen` card when attribution fields are present, using friendly labels such as Phone, Android Auto, Playlist, Smart Mix, Streamed, and Downloaded.
+- Pulse Story now includes a `Your Listening Map` card when attribution data is available.
 - Listening Habits now labels weekday/weekend, daypart, and active-hour values as total listening minutes rather than play counts.
-- Cirque sends lightweight `nd_source` hints for normal music scrobbles and remote podcast episode stream URLs.
-- Source values currently include `android_phone`, `android_tablet`, `android_tv`, and `android_auto`.
-- Standard Navidrome ignores these additive parameters. navidrome-experimental `develop` and a compatible Pulse plugin must read/store/aggregate them before source cards appear; this newer source/device Pulse surfacing is not available in the current `stable` channel.
+- Cirque sends lightweight `nd_source`, `nd_origin`, and `nd_playback_mode` hints for normal music scrobbles, and `nd_source` for remote podcast episode stream URLs.
+- Source values currently include `android_phone`, `android_tablet`, `android_tv`, and `android_auto`; origin values include album, artist, playlist, search, smart mix, queue, and radio; playback modes are streamed and downloaded.
+- Standard Navidrome ignores these additive parameters. navidrome-experimental `develop` and a compatible Pulse plugin must read/store/aggregate them before attribution cards appear; this newer Pulse attribution surfacing is not available in the current `stable` channel.
 
 ### Experimental Server Features
 
@@ -39,7 +41,7 @@ These features require Navidrome experimental support or companion plugins and a
 
 - `stable` and `develop`: Podcasts.
 - `stable` and `develop`: Physical folder browsing.
-- `stable` and `develop`: Base enhanced attribution where available. Newer Pulse source/device cards require `develop`.
+- `stable` and `develop`: Base enhanced attribution where available. Newer Pulse source/device, origin, playback-mode, and source/origin matrix cards require `develop`.
 - `develop` only: User-defined song tagging.
 - `develop` only: AI Tags, AI Genre, AI Mood, and My Tags dashboards.
 - `develop` only: Skipped/disliked track indicators and server-side skip behavior.
@@ -53,4 +55,4 @@ These features require Navidrome experimental support or companion plugins and a
 - Recursive folder actions are not yet implemented.
 - Podcast settings are still early.
 - Advanced audio tuning is staged; full parametric EQ, compression, loudness, and device-assigned profiles remain planned.
-- Source/device Pulse cards only appear after a compatible navidrome-experimental `develop` and Pulse plugin stack emits the matching snapshot fields.
+- Pulse source/device, origin, playback-mode, and source/origin matrix cards only appear after a compatible navidrome-experimental `develop` and Pulse plugin stack emits the matching snapshot fields.

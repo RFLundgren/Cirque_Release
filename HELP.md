@@ -991,13 +991,16 @@ Current Cirque Pulse cards can include:
 - podcast by time-of-day when the plugin provides `podcast_by_daypart`
 - AI tag and My Tag breakdowns when the plugin provides tag play counts
 - mood, AI tag, and My Tag by time-of-day cards when the plugin provides grouped daypart fields
-- source breakdown when the plugin provides `source_breakdown` or the older `sources` map
+- source/device breakdown when the plugin provides `source_breakdown` or the older `sources` map
+- playback-origin breakdown when the plugin provides `origin_breakdown`
+- streamed/downloaded breakdown when the plugin provides `playback_mode_breakdown`
+- source/origin signature patterns when the plugin provides `source_origin_matrix`
 - source by content type when the plugin provides `source_by_content_type`
 - comparison insights when Cirque can read the previous snapshot for the same period
 
 ### Podcast and tag insight behavior
 
-Podcast, podcast player, daypart, source/content, AI tag, and My Tag cards are conditional. They appear only when the Pulse snapshot contains the relevant fields. If you run an older Pulse plugin, these cards remain hidden rather than showing blank sections. Cirque now sends a lightweight `nd_source` value for playback attribution: normal scrobbles carry it through the durable pending-scrobble queue, and remote podcast episode streams append it to the stream URL. Standard Navidrome ignores this extra value; navidrome-experimental `develop` and a compatible Pulse plugin must read it before source/device cards can show Phone, Android Auto, Android TV, or Tablet breakdowns. These newer source/device Pulse cards are not available in the current `stable` navidrome-experimental channel.
+Podcast, podcast player, daypart, source/origin/playback-mode, source/content, AI tag, and My Tag cards are conditional. They appear only when the Pulse snapshot contains the relevant fields. If you run an older Pulse plugin, these cards remain hidden rather than showing blank sections. Cirque now sends lightweight playback-attribution hints on music scrobbles: `nd_source` for Phone, Android Auto, Android TV, or Tablet; `nd_origin` for album, artist, playlist, search, smart mix, queue, or radio starts; and `nd_playback_mode` for streamed versus downloaded playback. Remote podcast episode streams append `nd_source` to the stream URL. Standard Navidrome ignores these extra values; navidrome-experimental `develop` and a compatible Pulse plugin must read them before source, origin, or playback-mode cards can show. These newer Pulse attribution cards are not available in the current `stable` navidrome-experimental channel.
 
 Podcast Listening compares podcast time with total listening time, shows episode count, formats podcast minutes as hours/minutes, lists top podcast channels, can show podcast players such as Car, Phone, or Desktop, and can show podcast listening by time of day when the plugin provides those counts.
 
