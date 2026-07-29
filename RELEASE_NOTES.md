@@ -1,4 +1,4 @@
-﻿# Cirque Release Notes
+# Cirque Release Notes
 
 ## 0.1.101
 
@@ -31,7 +31,7 @@ This release refreshes the public test APK in the Cirque_Release repository. The
 - Listening Habits now labels weekday/weekend, daypart, and active-hour values as total listening minutes rather than play counts.
 - Cirque sends lightweight `nd_source` hints for normal music scrobbles and remote podcast episode stream URLs.
 - Source values currently include `android_phone`, `android_tablet`, `android_tv`, and `android_auto`.
-- Standard Navidrome ignores these additive parameters. navidrome-experimental and the Pulse plugin must read/store/aggregate them before source cards appear.
+- Standard Navidrome ignores these additive parameters. navidrome-experimental `develop` and a compatible Pulse plugin must read/store/aggregate them before source cards appear; this newer source/device Pulse surfacing is not available in the current `stable` channel.
 
 ### Experimental Server Features
 
@@ -39,7 +39,7 @@ These features require Navidrome experimental support or companion plugins and a
 
 - `stable` and `develop`: Podcasts.
 - `stable` and `develop`: Physical folder browsing.
-- `stable` and `develop`: Enhanced scrobble/source attribution for richer Pulse context.
+- `stable` and `develop`: Base enhanced attribution where available. Newer Pulse source/device cards require `develop`.
 - `develop` only: User-defined song tagging.
 - `develop` only: AI Tags, AI Genre, AI Mood, and My Tags dashboards.
 - `develop` only: Skipped/disliked track indicators and server-side skip behavior.
@@ -53,4 +53,4 @@ These features require Navidrome experimental support or companion plugins and a
 - Recursive folder actions are not yet implemented.
 - Podcast settings are still early.
 - Advanced audio tuning is staged; full parametric EQ, compression, loudness, and device-assigned profiles remain planned.
-- Source/device Pulse cards only appear after the server/plugin stack emits the matching snapshot fields.
+- Source/device Pulse cards only appear after a compatible navidrome-experimental `develop` and Pulse plugin stack emits the matching snapshot fields.

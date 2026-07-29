@@ -1,4 +1,4 @@
-﻿# Cirque Android Release
+# Cirque Android Release
 
 Cirque is a dedicated Android music client for Navidrome and compatible Subsonic API servers. It is built for people who want a fast self-hosted music app with strong offline playback, phone and tablet support, Android Auto compatibility, Android TV listening support, theming, audio profiles, smart mixes, podcasts, folders, and richer server-backed insights where available.
 
@@ -52,8 +52,8 @@ Important: not every experimental feature is available in every navidrome-experi
 | --- | --- | --- |
 | [Podcast support](https://github.com/RFLundgren/navidrome_experimental/blob/master/PODCAST_PLAN.md) | `stable` and `develop` | Podcasts section, episode playback, server-side episode download state, phone episode downloads, and playlist add where supported. |
 | [Physical folder browsing](https://github.com/RFLundgren/navidrome_experimental/blob/master/navidrome-folder-roadmap.md) | `stable` and `develop` | Folders section for navigating and playing music by disk layout. |
-| [Enhanced scrobble attribution](https://github.com/RFLundgren/navidrome_experimental#enhanced-scrobble-attribution-pulse-integration) | `stable` and `develop` | Richer Pulse/source context when available to the server and plugins. |
-| [Pulse insights](https://github.com/RFLundgren/pulse) | Navidrome with plugin support, build dated 2026-03-03 or later, plus the Pulse plugin. Enhanced source attribution is best with navidrome-experimental `stable` or `develop`. | Weekly, monthly, and yearly listening recaps in Cirque: top artists, tracks, albums, genres, moods, listening habits, sessions, diversity metrics, library recency, podcast insight fields, AI/My Tag patterns, comparison insights, source/device breakdowns where provided, and track obsession. |
+| [Enhanced scrobble attribution](https://github.com/RFLundgren/navidrome_experimental#enhanced-scrobble-attribution-pulse-integration) | `stable` and `develop` for base attribution; newer Pulse source/device cards require `develop` | Richer Pulse/source context when available to the server and plugins. |
+| [Pulse insights](https://github.com/RFLundgren/pulse) | Navidrome with plugin support, build dated 2026-03-03 or later, plus the Pulse plugin. Newer source/device Pulse breakdowns require navidrome-experimental `develop` plus a compatible Pulse plugin. | Weekly, monthly, and yearly listening recaps in Cirque: top artists, tracks, albums, genres, moods, listening habits, sessions, diversity metrics, library recency, podcast insight fields, AI/My Tag patterns, comparison insights, source/device breakdowns where provided, and track obsession. |
 | [User-defined song tagging](https://github.com/RFLundgren/navidrome_experimental#user-defined-song-tagging-experimental) | `develop` only | My Tags, tag filtering, tag-based playlist workflows, and plugin-facing tag data. |
 | [AI Genre / AI Mood / My Tags dashboards](https://github.com/RFLundgren/navidrome_experimental#ai-genre--ai-mood--my-tags-dashboards-experimental) | `develop` only | Library dashboards for AI Genre, AI Mood, and My Tags, with visibility controlled by Cirque settings and server capability probing. |
 | [On-demand plugin actions](https://github.com/RFLundgren/navidrome_experimental#on-demand-plugin-actions-experimental) | `develop` only | Plugin config actions on the server side, such as one-off validation or manual plugin runs. |
@@ -79,7 +79,7 @@ Pulse starts collecting from the point it is installed. It does not import histo
 
 Pulse can provide weekly, monthly, and yearly recaps including total plays, listening minutes, top artists, top tracks, top albums, top genres, mood breakdowns, peak listening day/time, weekday versus weekend split, hourly patterns, listening streak, session counts, longest session, variety score, repeat ratio, top artist/album/genre concentration, recent-addition listening, podcast/channel/player insight, AI/My Tag patterns, comparison insights, source/device breakdowns where the server/plugin provide them, and track obsession.
 
-Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow. Source/client attribution requires navidrome-experimental and Pulse plugin support for Cirque source hints. Cirque sends lightweight `nd_source` values for music scrobbles and remote podcast episode streams; standard Navidrome ignores these extra parameters, while compatible experimental builds can use them for Phone, Tablet, Android TV, and Android Auto breakdowns.
+Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow. Source/client attribution requires navidrome-experimental `develop` and compatible Pulse plugin support for Cirque source hints. Cirque sends lightweight `nd_source` values for music scrobbles and remote podcast episode streams; standard Navidrome ignores these extra parameters. Phone, Tablet, Android TV, and Android Auto source/device breakdowns are not available in the current `stable` navidrome-experimental channel.
 
 ## First Test Checklist
 
