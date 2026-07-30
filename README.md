@@ -44,7 +44,7 @@ Cirque works with standard Navidrome for the core Subsonic music-client experien
 
 ### Requires Navidrome Experimental Or Companion Plugins
 
-These features are optional. Cirque probes the server and hides unsupported sections rather than breaking against a standard Navidrome server.
+These features are optional. Cirque probes the server and hides unsupported sections rather than breaking against a standard Navidrome server. If a feature is not supported by the connected server, Cirque hides that section rather than showing a broken screen.
 
 Important: not every experimental feature is available in every navidrome-experimental build. The `stable` tag is the safer checkpoint. The `develop` tag is where newer work appears first.
 
@@ -79,7 +79,7 @@ Pulse starts collecting from the point it is installed. It does not import histo
 
 Pulse can provide weekly, monthly, and yearly recaps including total plays, listening minutes, top artists, top tracks, top albums, top genres, mood breakdowns, peak listening day/time, weekday versus weekend split, hourly patterns, listening streak, session counts, longest session, variety score, repeat ratio, top artist/album/genre concentration, recent-addition listening, podcast/channel/player insight, AI/My Tag patterns, comparison insights, source/device, playback-origin, streamed/downloaded, and source/origin breakdowns where the server/plugin provide them, and track obsession.
 
-Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow. Source/client attribution requires navidrome-experimental `develop` and compatible Pulse plugin support for Cirque attribution hints. Cirque sends lightweight `nd_source`, `nd_origin`, and `nd_playback_mode` values for music scrobbles, and `nd_source` for remote podcast episode streams; standard Navidrome ignores these extra parameters. Phone, Tablet, Android TV, Android Auto, playback-origin, streamed/downloaded, and source/origin breakdowns are not available in the current `stable` navidrome-experimental channel.
+Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow. Source/client attribution requires navidrome-experimental `develop` and compatible Pulse plugin support for Cirque attribution hints. Cirque sends lightweight `nd_source`, `origin`, and `playbackMode` values for music scrobbles, and `nd_source` for remote podcast episode streams; standard Navidrome ignores these extra parameters. Phone, Tablet, Android TV, Android Auto, playback-origin, streamed/downloaded, and source/origin breakdowns are not available in the current `stable` navidrome-experimental channel.
 
 ## First Test Checklist
 
@@ -104,4 +104,3 @@ Mood breakdowns require mood playlists to exist on the server, either created ma
 ## Feedback
 
 Please include the Cirque version, Android device, Android version, server version, connection type, and whether you are using standard Navidrome or the experimental fork when reporting problems.
-
