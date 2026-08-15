@@ -2,7 +2,7 @@
 
 Cirque is an Android music client for Navidrome and compatible Subsonic API servers. This guide is written as a practical user manual: find the thing you want to do, follow the steps, then use the checks at the end of the section if something does not work.
 
-The current build is focused on Android phones. Tablet and Android TV work is still evolving, but this help file mainly describes the phone experience that is available now. Android Auto support already exists for core playback and queue actions.
+Cirque now supports phone, tablet, Android Auto, and Android TV from one shared playback core. Some sections of this guide are still naturally phone-first because touch workflows remain denser, but Android Auto and Android TV are both active supported experiences rather than side experiments.
 
 ## Index
 
@@ -51,16 +51,17 @@ Use this section after installing a new APK, especially if a feature appears to 
 5. Confirm the package is `com.cirque.music`.
 6. Confirm the version shown in About matches the newest APK you installed.
 
-### Current debug APK
+### Current release APK
 
 ```text
-C:\Development\Navidrome Streamer\app\build\outputs\apk\debug\app-debug.apk
+downloads/cirque-0.1.161.apk
 ```
 
 ### Note
 
 - The old prototype used a different package. If Android still shows the old app, uninstall `com.navidromestreamer`.
-- The current build is primarily phone-focused, with Android Auto and Android TV support also available for playback-focused testing.
+- The current release package is `com.cirque.music`.
+- Android Auto and Android TV are both supported, but the host device controls some final layout behaviour.
 
 ## Before You Connect
 

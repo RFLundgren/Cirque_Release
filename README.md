@@ -1,67 +1,85 @@
 # Cirque Android Release
 
-Cirque is a dedicated Android music client for Navidrome and compatible Subsonic API servers. It is built for people who want a fast self-hosted music app with strong offline playback, phone and tablet support, Android Auto compatibility, Android TV listening support, theming, audio profiles, smart mixes, podcasts, folders, and richer server-backed insights where available.
+Cirque is a native Android music player for self-hosted Navidrome libraries. This repository is the public distribution point for the release APK, installation notes, user help, and release notes.
 
-Cirque is not open source. It is currently shared for testing and is planned as donationware when it is ready for wider public use.
+Cirque is closed-source and currently distributed directly for testing. It targets Android phone, tablet, Android Auto, and Android TV use, with one shared playback core and a growing set of device-specific interface refinements.
 
 ## Current Download
 
-- APK: [downloads/cirque-0.1.101.apk](downloads/cirque-0.1.101.apk)
-- Version: `0.1.101`
+- APK: [downloads/cirque-0.1.161.apk](downloads/cirque-0.1.161.apk)
+- Version: `0.1.161`
 - Package: `com.cirque.music`
-- Build type: release APK
-- Android minimum SDK for dexing: 26
+- Build type: signed release APK
+- Minimum Android version: Android 8.0 / API 26
 
 If Android warns that the app came from an unknown source, allow installation from your browser or file manager, then install the APK again.
 
+## What Cirque Does
+
+- Connects to your own Navidrome server with saved connection profiles for Local, VPN/Tailscale, domain/HTTPS, and fully custom setups
+- Streams in original quality or MP3 transcode mode
+- Supports background playback, lock-screen controls, Bluetooth media buttons, queue save/restore, and scrobbling
+- Downloads albums and playlists for offline playback with storage limits, retry support, and Smart Sync
+- Includes Android Auto support for safe in-car browsing and playback
+- Includes Android TV support with a dedicated D-pad interface, TV Home, TV Library, TV Playing, QR-based phone-to-TV profile transfer, TV Pulse, and a dark listening screen
+- Includes software DSP audio profiles with EQ, dynamics, route-based profile assignment, A/B bypass, meters, AutoEQ import, and room-measurement support
+- Supports Pulse recaps where the server/plugin stack exposes them
+- Supports Podcasts, Folders, AI Tags, and My Tags where the connected server exposes the required experimental endpoints
+
+## Current Release Highlights
+
+Version `0.1.161` includes the current Android TV parity work, Pulse story improvements, donationware prompt flow, and stronger Android Auto/playback persistence.
+
+Recent areas of work include:
+
+- Android TV Playing redesign with a dedicated footer mini-player dock, slimmer queue rows, better queue follow, dark listening mode, and stronger D-pad focus handling
+- Android TV navigation parity work across Home, Library, detail screens, Settings, Search, and setup transfer
+- Pulse Story pages that now carry more recap detail instead of leaving most information in Overview
+- Donationware prompt flow on phone/tablet Home with cooldown logic and delayed permanent opt-out
+- Android Auto queue/resume hardening for reconnect events, especially for podcasts and downloaded playlist sessions
+- Restored queue recovery that refreshes remote stream URLs from the current connection to reduce stale source-not-found playback failures
+
 ## Device Compatibility
 
-Cirque is built for Android and currently supports these device types:
+Cirque currently supports these device types:
 
-- Android phones: primary supported experience.
-- Android tablets: supported with the same core app experience, with tablet-specific layout polish still evolving.
-- Android Auto: supported for safe in-car browsing and playback controls, including playlists and downloads.
-- Android TV: supported for playback-focused listening, including an early dark listening screen option.
+- Android phones: primary day-to-day experience
+- Android tablets: supported with shared app behaviour and ongoing layout polish
+- Android Auto: supported for safe browsing and playback controls, including playlists and downloads
+- Android TV: supported for living-room playback with TV-specific Home, Library, Playing, Pulse, Search, Settings, and setup-transfer flows
 
-Android Auto and Android TV use host-controlled layouts, so they may not expose every visual setting or advanced app feature available on the phone/tablet app.
+Android Auto and Android TV both use host-controlled or remote-driven layouts, so they do not always expose every phone/tablet interaction in the same way.
 
 ## Server Compatibility
 
-Cirque works with standard Navidrome for the core Subsonic music-client experience. Some newer areas are only visible when the connected server advertises the required experimental endpoints.
+Cirque works with standard Navidrome for the core Subsonic-style music client experience. Some newer areas are shown only when the connected server advertises the matching experimental endpoints or plugin data.
 
 ### Works With Standard Navidrome
 
-- Connection profiles
-- Local, VPN/Tailscale, domain/HTTPS, and custom connection styles
-- Albums, artists, songs, playlists, favorites, and search
-- Playback, queue, shuffle, repeat, and resume
-- Artwork where Navidrome provides cover art
-- Offline album and playlist downloads to the phone
-- Android media notification and lock-screen controls
-- Android Auto core playback and downloaded playlist playback
-- Themes, accent color, and display settings
-- Audio profile setup and EQ band controls inside the app
+- Connection profiles and server switching
+- Albums, artists, songs, playlists, favorites, search, playback, queue, shuffle, repeat, and resume
+- Background playback and Android system media controls
+- Offline album and playlist downloads to the phone/tablet
+- Android Auto core browsing/playback and downloaded collection playback
+- Themes, accent colours, display settings, and audio profiles
 
 ### Requires Navidrome Experimental Or Companion Plugins
 
-These features are optional. Cirque probes the server and hides unsupported sections rather than breaking against a standard Navidrome server. If a feature is not supported by the connected server, Cirque hides that section rather than showing a broken screen.
+These areas are optional. Cirque probes the server and hides unsupported sections instead of exposing broken UI.
 
 Important: not every experimental feature is available in every navidrome-experimental build. The `stable` tag is the safer checkpoint. The `develop` tag is where newer work appears first.
 
 | Feature | Server channel | What Cirque uses it for |
 | --- | --- | --- |
-| [Podcast support](https://github.com/RFLundgren/navidrome_experimental/blob/master/PODCAST_PLAN.md) | `stable` and `develop` | Podcasts section, episode playback, server-side episode download state, phone episode downloads, and playlist add where supported. |
-| [Physical folder browsing](https://github.com/RFLundgren/navidrome_experimental/blob/master/navidrome-folder-roadmap.md) | `stable` and `develop` | Folders section for navigating and playing music by disk layout. |
-| [Enhanced scrobble attribution](https://github.com/RFLundgren/navidrome_experimental#enhanced-scrobble-attribution-pulse-integration) | `stable` and `develop` for base attribution; newer Pulse source/device, origin, playback-mode, and source/origin matrix cards require `develop` | Richer Pulse/source context when available to the server and plugins. |
-| [Pulse insights](https://github.com/RFLundgren/pulse) | Navidrome with plugin support, build dated 2026-03-03 or later, plus the Pulse plugin. Newer Pulse source/device, origin, playback-mode, and source/origin matrix breakdowns require navidrome-experimental `develop` plus a compatible Pulse plugin. | Weekly, monthly, and yearly listening recaps in Cirque: top artists, tracks, albums, genres, moods, listening habits, sessions, diversity metrics, library recency, podcast insight fields, AI/My Tag patterns, comparison insights, source/device, playback-origin, streamed/downloaded, and source/origin signature breakdowns where provided, and track obsession. |
-| [User-defined song tagging](https://github.com/RFLundgren/navidrome_experimental#user-defined-song-tagging-experimental) | `develop` only | My Tags, tag filtering, tag-based playlist workflows, and plugin-facing tag data. |
-| [AI Genre / AI Mood / My Tags dashboards](https://github.com/RFLundgren/navidrome_experimental#ai-genre--ai-mood--my-tags-dashboards-experimental) | `develop` only | Library dashboards for AI Genre, AI Mood, and My Tags, with visibility controlled by Cirque settings and server capability probing. |
-| [On-demand plugin actions](https://github.com/RFLundgren/navidrome_experimental#on-demand-plugin-actions-experimental) | `develop` only | Plugin config actions on the server side, such as one-off validation or manual plugin runs. |
-| [Skip / auto-pass disliked songs](https://github.com/RFLundgren/navidrome_experimental#skip--auto-pass-disliked-songs-experimental) | `develop` only | Dimmed/skipped track indicators in Cirque and automatic skip behavior where the server exposes it. |
-| [Genre exploration](https://github.com/RFLundgren/navidrome_experimental#genre-exploration-experimental) | `develop` only | Richer genre browsing and genre-based mix/playlist entry points when exposed by the server. |
-| [Genre merging](https://github.com/RFLundgren/navidrome_experimental#genre-merging-experimental) | `develop` only | Cleaner genre data from the server after scan-time merges. Cirque benefits through normal genre/tag browsing. |
-
-Features marked `develop` only have not reached a tagged `stable` checkpoint yet. See [Getting navidrome-experimental](https://github.com/RFLundgren/navidrome_experimental#getting-navidrome-experimental) for what the two tags mean.
+| Podcasts | `stable` and `develop` | Podcast browsing, episode playback, server-side podcast state, and podcast playlist workflows where supported |
+| Physical folder browsing | `stable` and `develop` | Folders section for navigating and playing by disk layout |
+| Enhanced scrobble attribution | Base attribution on `stable` and `develop`; newer breakdown cards require `develop` | Richer Pulse source/device/origin/playback-mode context |
+| Pulse insights | Navidrome with plugin support plus the Pulse plugin | Weekly, monthly, and yearly recaps including listening, diversity, source, tag, podcast, and comparison insight cards where available |
+| User-defined song tagging | `develop` only | My Tags and tag-based browsing/filtering |
+| AI Genre / AI Mood / My Tags dashboards | `develop` only | Library dashboards and server-backed tag browsing |
+| On-demand plugin actions | `develop` only | Manual plugin/server actions where supported |
+| Skip / auto-pass disliked songs | `develop` only | Skipped-track indicators and automatic skip behaviour |
+| Genre exploration and genre merging | `develop` only | Richer genre browsing and cleaner server genre data |
 
 Experimental repositories:
 
@@ -70,28 +88,35 @@ Experimental repositories:
 - AI mood playlists plugin: [RFLundgren/AI-Mood-Playlists-Plugin](https://github.com/RFLundgren/AI-Mood-Playlists-Plugin)
 - Pulse plugin and insight system: [RFLundgren/pulse](https://github.com/RFLundgren/pulse)
 
+## Pulse Notes
 
-### Pulse Notes
+Pulse is not part of the normal Subsonic API. It requires a Navidrome build with plugin support plus the Pulse plugin itself. Cirque reads the generated `Pulse-Data` snapshot payload and renders it as Overview and Story recap pages.
 
-Pulse is not part of the normal Subsonic API. It requires a Navidrome build with plugin support, currently documented by Pulse as a build dated 2026-03-03 or later, plus the Pulse plugin itself. It records scrobbles and writes generated insight snapshots to a `Pulse-Data` playlist. Cirque knows how to read that payload and render it as Pulse insight cards.
+Pulse can provide weekly, monthly, and yearly recaps including top artists, tracks, albums, genres, moods, listening habits, sessions, streaks, diversity, recency, podcast insight fields, AI/My Tag patterns, comparison insights, source/device attribution, playback-origin attribution, streamed/downloaded breakdowns, and source/origin signatures where the server/plugin stack provides those fields.
 
-Pulse starts collecting from the point it is installed. It does not import historical listening from Last.fm or other services. After installation, play music normally and allow the plugin scheduler to run before expecting real cards to appear in Cirque.
+Standard Navidrome ignores Cirque's additive attribution hints. Compatible navidrome-experimental and Pulse plugin builds are required before those extra source/origin cards appear.
 
-Pulse can provide weekly, monthly, and yearly recaps including total plays, listening minutes, top artists, top tracks, top albums, top genres, mood breakdowns, peak listening day/time, weekday versus weekend split, hourly patterns, listening streak, session counts, longest session, variety score, repeat ratio, top artist/album/genre concentration, recent-addition listening, podcast/channel/player insight, AI/My Tag patterns, comparison insights, source/device, playback-origin, streamed/downloaded, and source/origin breakdowns where the server/plugin provide them, and track obsession.
+## Installation
 
-Mood breakdowns require mood playlists to exist on the server, either created manually or through the AI mood playlist/tagging workflow. Source/client attribution requires navidrome-experimental `develop` and compatible Pulse plugin support for Cirque attribution hints. Cirque sends lightweight `nd_source`, `origin`, and `playbackMode` values for music scrobbles, and `nd_source` for remote podcast episode streams; standard Navidrome ignores these extra parameters. Phone, Tablet, Android TV, Android Auto, playback-origin, streamed/downloaded, and source/origin breakdowns are not available in the current `stable` navidrome-experimental channel.
+1. Download the current APK from this repository.
+2. On your Android device, open Android settings and allow installs from your browser or file manager if prompted.
+3. Open the APK and install it.
+4. Open Cirque and complete the connection setup.
+
+Updating is done by installing the newer APK over the existing app. Your saved connections, queue state, and downloads are preserved.
 
 ## First Test Checklist
 
 1. Install the APK.
 2. Open Cirque.
-3. Add a connection profile for your server.
+3. Add or import a connection profile.
 4. Tap `Test Connection` before saving.
-5. Open Library and confirm albums, artists, songs, and playlists load.
-6. Start playback and confirm notification controls appear.
-7. Download a small playlist and confirm it appears under Library > Downloads.
-8. If using Android Auto, start from downloaded playlists or normal playlists and test playlist switching.
-9. If using the experimental server, confirm Podcasts, Folders, AI Tags, My Tags, skipped tracks, and Pulse appear only where your server supports them.
+5. Confirm Library loads albums, artists, songs, and playlists.
+6. Start playback and confirm Android notification controls appear.
+7. If using downloads, download a small playlist or album and confirm it appears in Library > Downloads.
+8. If using Android Auto, test normal playback, playlist playback, and reconnect resume.
+9. If using Android TV, test Home, Library, Playing, Settings, and QR-based setup transfer.
+10. If using the experimental server stack, confirm Podcasts, Folders, AI Tags, My Tags, skipped-track indicators, and Pulse appear only where your server supports them.
 
 ## Documentation
 
@@ -103,4 +128,12 @@ Mood breakdowns require mood playlists to exist on the server, either created ma
 
 ## Feedback
 
-Please include the Cirque version, Android device, Android version, server version, connection type, and whether you are using standard Navidrome or the experimental fork when reporting problems.
+When reporting problems, include:
+
+- Cirque version
+- Android device model
+- Android version
+- Server version
+- Connection type
+- Whether you are using standard Navidrome or the experimental fork
+- Whether the problem occurs on phone, tablet, Android Auto, or Android TV
